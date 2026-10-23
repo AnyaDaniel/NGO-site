@@ -1,0 +1,207 @@
+/* Shared layout corrections preserve inner-page colours, type and composition. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+body {
+  min-width: 0;
+}
+#root {
+  min-width: 0;
+}
+img,
+video,
+svg {
+  max-width: 100%;
+}
+main,
+section,
+article,
+form {
+  min-width: 0;
+}
+main p,
+main li,
+footer p,
+footer a {
+  overflow-wrap: anywhere;
+}
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+a,
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #518b66;
+  outline-offset: 4px;
+}
+.site-header .site-brand {
+  min-width: 0;
+  flex-shrink: 1;
+}
+.site-header .site-brand > div {
+  min-width: 0;
+}
+.site-header .site-brand img {
+  flex-shrink: 0;
+}
+.site-header .site-menu-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.site-header .site-menu-panel {
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.site-header .site-menu-panel a {
+  min-height: 44px;
+}
+.site-header .site-menu-panel {
+  animation: sharedMenuIn 0.2s ease-out;
+}
+@keyframes sharedMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 640px) {
+  .site-header .site-brand {
+    gap: 8px;
+  }
+  .site-header .site-brand img {
+    height: 44px;
+    width: 66px;
+    object-fit: contain;
+  }
+  .site-header .site-brand > div > span:first-child {
+    font-size: 18px;
+  }
+  .site-header .site-brand > div > span:last-child {
+    font-size: 8px;
+    line-height: 1.5;
+    max-width: 160px;
+  }
+  .site-header .site-brand.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0;
+  }
+  .site-header .site-brand > div > span {
+    overflow-wrap: anywhere;
+  }
+  .site-header .site-brand + div {
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  .site-header .h-20 {
+    height: 72px;
+  }
+  .site-page main h1 {
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.2;
+    overflow-wrap: normal;
+  }
+  .site-page main h2 {
+    overflow-wrap: normal;
+  }
+  .site-page main .text-xl {
+    font-size: 17px;
+  }
+  .site-page main .grid > * {
+    min-width: 0;
+  }
+  .site-page main button {
+    max-width: 100%;
+  }
+  .site-page main .grid-cols-3 > button {
+    padding-inline: 8px;
+    font-size: 13px;
+  }
+  .site-page main [role="tablist"] {
+    height: auto;
+    min-height: 40px;
+  }
+  .site-page main [role="tab"] {
+    white-space: normal;
+    font-size: 11px;
+    padding: 9px 4px;
+  }
+  .site-page main .flex.items-center.gap-6 {
+    flex-wrap: wrap;
+  }
+  .site-page footer .flex.items-center.gap-3 {
+    align-items: flex-start;
+  }
+  .site-page footer h4 {
+    overflow-wrap: anywhere;
+  }
+  .site-page main .gap-16 {
+    gap: 36px;
+  }
+  .site-page main .lg\:gap-20 {
+    row-gap: 40px;
+  }
+  .site-page main .py-20 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .site-page main .py-16 {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+  .site-page main .text-4xl {
+    font-size: 30px;
+  }
+  .site-page main input,
+  .site-page main textarea,
+  .site-page main select {
+    font-size: 16px;
+  }
+}
+@media (max-width: 359px) {
+  .site-header .site-brand > div > span:last-child {
+    max-width: 137px;
+    font-size: 7px;
+  }
+  .site-header .site-brand img {
+    width: 52px;
+  }
+  .site-page main .grid-cols-3 {
+    gap: 7px;
+  }
+  .site-page main .grid-cols-3 > button {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .site-menu-panel {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keep inherited heading colours readable on the original coloured page banners. */
+.site-page main > .bg-primary h1,
+.site-page main > .bg-accent h1 {
+  color: #fff;
+}
